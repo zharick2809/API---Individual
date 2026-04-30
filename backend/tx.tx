@@ -439,15 +439,19 @@
                     
                     ⦿   env.
                     ¿Qué hace el archivo?
-                        Rta: Este archivo especifica la ruta tanto de el host, 
-                    ¿Qué función cumple el archivo en el proyecto?].
+                        Rta: define la configuración de conexión a la base de datos, como el host, usuario, contraseña, nombre de la base de datos 
+                        y puerto. También guarda la clave secreta usada para generar y validar tokens JWT.
 
+                    ¿Qué función cumple el archivo en el proyecto?.
+                        Rta: Permite separar datos sensibles del código y facilita cambiar configuraciones sin modificar el programa.
                 |---------------------------------------------------------------------------------------------------------------------------------------- |
                 
-                    A.   [Explicar qué hace cada línea de código, por ejemplo: Desde la línea 1 hasta la 5 'export const MyColors = {}', hace que 
-                          'MyColors' sea accesible desde otros archivos del proyecto (importable)].
-                    B.   [Explicar qué hace cada línea de código, por ejemplo: En la línea 2 'background: '#EEEEEE',', se está colocando un color 
-                          de fondo gris claro, al elemento reutilizable en el proyecto].
+                    A.   DB_HOST=localhost : Indica que la base de datos está en el equipo local.
+                    B.   DB_USER=root : Define el usuario de acceso a la base de datos.
+                    C.   DB_PASSWORD= : Espacio para la contraseña del usuario.
+                    D.   DB_NAME=db_node : Nombre de la base de datos que usará el proyecto.
+                    E.   DB_PORT=3306 : Puerto de conexión de MySQL.
+                    F.   JWT_SECRET=... : Clave privada para crear y verificar tokens JWT.
                 |                                                                                                                                         |
                 └ --------------------------------------------------------------------------------------------------------------------------------------- ┘
 
@@ -474,15 +478,20 @@
                 |                                                                                                                                         |
                   EXPLICACIÓN:
                     
-                    ⦿   [nombre_archivo]: [En este espacio, se deben responder 2 preguntas: ¿Qué hace el archivo? y ¿Qué función cumple el archivo 
-                                            en el proyecto?].
+                    ⦿   config.js
+                        ¿Qué hace el archivo?
+                            Rta: Este archivo configura y establece la conexión entre el proyecto y la base de datos MySQL utilizando variables del
+                            archivo .env
+                        ¿Qué función cumple el archivo en el proyecto?.
+                            Rta: Permite que la aplicación se conecte a la base de datos para realizar consultas, guardar información y reutilizar 
+                            la conexión en otros archivos.
 
                 |---------------------------------------------------------------------------------------------------------------------------------------- |
                 
-                    A.   [Explicar qué hace cada línea de código, por ejemplo: Desde la línea 1 hasta la 5 'export const MyColors = {}', hace que 
-                          'MyColors' sea accesible desde otros archivos del proyecto (importable)].
-                    B.   [Explicar qué hace cada línea de código, por ejemplo: En la línea 2 'background: '#EEEEEE',', se está colocando un color 
-                          de fondo gris claro, al elemento reutilizable en el proyecto].
+                    A.   Desde la línea 1 hasta la 2 se importan los módulos necesarios para usar variables de entorno y manejar MySQL.
+                    B.   Desde la línea 3 hasta la 9 se crea la configuración de conexión con los datos del archivo .env.
+                    C.   Desde la línea 10 hasta la 13 se intenta conectar la base de datos y muestra un mensaje si la conexión fue exitosa.
+                    D.   En la línea 14 se exporta la conexión para usarla en otros archivos del proyecto.
                 |                                                                                                                                         |
                 └ --------------------------------------------------------------------------------------------------------------------------------------- ┘
 
@@ -645,15 +654,24 @@
                 |                                                                                                                                         |
                   EXPLICACIÓN:
                     
-                    ⦿   [nombre_archivo]: [En este espacio, se deben responder 2 preguntas: ¿Qué hace el archivo? y ¿Qué función cumple el archivo 
-                                            en el proyecto?].
+                    ⦿   user.js
+                        ¿Qué hace el archivo?
+                            Rta: Este archivo define el modelo de usuarios del sistema. Contiene funciones para consultar, crear, actualizar y 
+                            eliminar usuarios en la base de datos MySQL.
+                        ¿Qué función cumple el archivo en el proyecto?.
+                            Rta:Permite gestionar toda la información de los usuarios y centraliza las operaciones CRUD (Crear, Leer, Actualizar y 
+                            Eliminar) para ser usadas desde otras partes del proyecto.
 
                 |---------------------------------------------------------------------------------------------------------------------------------------- |
                 
-                    A.   [Explicar qué hace cada línea de código, por ejemplo: Desde la línea 1 hasta la 5 'export const MyColors = {}', hace que 
-                          'MyColors' sea accesible desde otros archivos del proyecto (importable)].
-                    B.   [Explicar qué hace cada línea de código, por ejemplo: En la línea 2 'background: '#EEEEEE',', se está colocando un color 
-                          de fondo gris claro, al elemento reutilizable en el proyecto].
+                    A.   Líneas 1 a 3: Importan la conexión a la base de datos, la librería bcryptjs y crean el objeto User.
+                    B.   Desde la linea 5 hasta la 16: Función para listar todos los usuarios registrados.
+                    C.   Desde la linea 18 hasta la 30: Función para buscar un usuario por su ID.
+                    D.   Desde la linea 32 hasta la 44: Función para buscar un usuario por correo electrónico.
+                    E.   Desde la linea 46 hasta la 82: Función para crear un usuario nuevo cifrando la contraseña.
+                    F.   Desde la linea 84 hasta la 134: Función para actualizar datos de un usuario.
+                    G.   Desde la linea 136 hasta la 147: Función para eliminar un usuario por ID.
+                    H.   Desde la linea 149: Exporta el objeto User para usarlo en otros archivos.
                 |                                                                                                                                         |
                 └ --------------------------------------------------------------------------------------------------------------------------------------- ┘
 
@@ -675,15 +693,19 @@
                 |                                                                                                                                         |
                   EXPLICACIÓN:
                     
-                    ⦿   [nombre_archivo]: [En este espacio, se deben responder 2 preguntas: ¿Qué hace el archivo? y ¿Qué función cumple el archivo 
-                                            en el proyecto?].
+                    ⦿   keys.js
+                    ¿Qué hace el archivo?
+                        Rta: Este archivo carga las variables de entorno y exporta la clave secreta JWT almacenada en el archivo .env.
+                    ¿Qué función cumple el archivo en el proyecto?.
+                        Rta: Permite centralizar la clave usada para crear y validar tokens JWT, mejorando la seguridad y reutilización en otras 
+                        partes del sistema.
 
                 |---------------------------------------------------------------------------------------------------------------------------------------- |
                 
-                    A.   [Explicar qué hace cada línea de código, por ejemplo: Desde la línea 1 hasta la 5 'export const MyColors = {}', hace que 
-                          'MyColors' sea accesible desde otros archivos del proyecto (importable)].
-                    B.   [Explicar qué hace cada línea de código, por ejemplo: En la línea 2 'background: '#EEEEEE',', se está colocando un color 
-                          de fondo gris claro, al elemento reutilizable en el proyecto].
+                    A.   Línea 1 require('dotenv').config(); : Lee y carga las variables del archivo .env.
+                    B.   Línea 3 module.exports = { : Inicia la exportación de un objeto.
+                    B.   Línea 4 secretOrKey: process.env.JWT_SECRET : Asigna la clave secreta guardada en .env.
+                    B.   Línea 5 }; : Finaliza la exportación del objeto.
                 |                                                                                                                                         |
                 └ --------------------------------------------------------------------------------------------------------------------------------------- ┘
                     
@@ -722,15 +744,29 @@
                 |                                                                                                                                         |
                   EXPLICACIÓN:
                     
-                    ⦿   [nombre_archivo]: [En este espacio, se deben responder 2 preguntas: ¿Qué hace el archivo? y ¿Qué función cumple el archivo 
-                                            en el proyecto?].
+                    ⦿   passport.js
+                        ¿Qué hace el archivo?
+                            Rta: Este archivo configura la autenticación con tokens JWT usando passport, verificando si el usuario existe en la 
+                            base de datos.
+                        ¿Qué función cumple el archivo en el proyecto?.
+                            Rta: Protege rutas privadas del sistema, permitiendo acceso solo a usuarios autenticados mediante token JWT.
 
                 |---------------------------------------------------------------------------------------------------------------------------------------- |
                 
-                    A.   [Explicar qué hace cada línea de código, por ejemplo: Desde la línea 1 hasta la 5 'export const MyColors = {}', hace que 
-                          'MyColors' sea accesible desde otros archivos del proyecto (importable)].
-                    B.   [Explicar qué hace cada línea de código, por ejemplo: En la línea 2 'background: '#EEEEEE',', se está colocando un color 
-                          de fondo gris claro, al elemento reutilizable en el proyecto].
+                    A.   Línea 1 require('passport-jwt').Strategy : Importa la estrategia JWT de passport.
+                    B.   Línea 2 require('passport-jwt').ExtractJwt : Importa función para extraer el token.
+                    C.   Línea 3 require('passport') : Importa la librería passport.
+                    D.   Línea 4 require('./keys') : Importa la clave secreta JWT.
+                    E.   Línea 5 require('../models/user') : Importa el modelo de usuarios.
+                    F.   Línea 7 const opts = { : Crea objeto de configuración.
+                    G.   Línea 8 jwtFromRequest... : Obtiene token desde encabezado Bearer.
+                    H.   Línea 9 secretOrKey...}: Usa la clave secreta para validar token.
+                    I.   Línea 12 passport.use(...) : Registra estrategia JWT.
+                    J.   Línea 13 User.findById(...) : Busca usuario según ID del token.
+                    K.   Líneas 14 a 16 : Si hay error, rechaza autenticación.
+                    L.   Líneas 17 a 19 : Si el usuario existe, permite acceso.
+                    M.   Líneas 20 a 22 : Si no existe, niega acceso.
+                    N.   Línea 26 module.exports = passport; : Exporta configuración para reutilizarla.
                 |                                                                                                                                         |
                 └ --------------------------------------------------------------------------------------------------------------------------------------- ┘
 
@@ -904,15 +940,24 @@
                 |                                                                                                                                         |
                   EXPLICACIÓN:
                     
-                    ⦿   [nombre_archivo]: [En este espacio, se deben responder 2 preguntas: ¿Qué hace el archivo? y ¿Qué función cumple el archivo 
-                                            en el proyecto?].
+                    ⦿   usersController.js
+                        ¿Qué hace el archivo?
+                            Rta: Este archivo contiene los controladores de usuarios. Recibe las solicitudes HTTP y ejecuta funciones para iniciar 
+                            sesión, registrar, consultar, actualizar y eliminar usuarios.
+                        ¿Qué función cumple el archivo en el proyecto?.
+                            Rta: Actúa como intermediario entre las rutas y el modelo User, procesando datos y enviando respuestas en formato 
+                            JSON al cliente.
 
                 |---------------------------------------------------------------------------------------------------------------------------------------- |
                 
-                    A.   [Explicar qué hace cada línea de código, por ejemplo: Desde la línea 1 hasta la 5 'export const MyColors = {}', hace que 
-                          'MyColors' sea accesible desde otros archivos del proyecto (importable)].
-                    B.   [Explicar qué hace cada línea de código, por ejemplo: En la línea 2 'background: '#EEEEEE',', se está colocando un color 
-                          de fondo gris claro, al elemento reutilizable en el proyecto].
+                    A.   Líneas 1 a 4: Importan modelo de usuario, librerías de cifrado, JWT y claves de seguridad.
+                    B.   Líneas 6 a 59: Función login, autentica usuarios y genera token JWT.
+                    C.   Líneas 61 a 76: Función getAllUsers, lista todos los usuarios.
+                    D.   Líneas 78 a 100: Función getUserById, consulta usuario por ID.
+                    E.   Líneas 102 a 124: Función register, registra un nuevo usuario.
+                    F.   Líneas 126 a 142: Función getUserUpdate, actualiza datos de usuario.
+                    G.   Líneas 144 a 160: Función getUserDelete, elimina usuario por ID.
+                    H.   Línea 161: Cierra y exporta el módulo.
                 |                                                                                                                                         |
                 └ --------------------------------------------------------------------------------------------------------------------------------------- ┘
 
@@ -975,15 +1020,18 @@
                 |                                                                                                                                         |
                   EXPLICACIÓN:
                     
-                    ⦿   [nombre_archivo]: [En este espacio, se deben responder 2 preguntas: ¿Qué hace el archivo? y ¿Qué función cumple el archivo 
-                                            en el proyecto?].
+                    ⦿   authMiddleware.js
+                        ¿Qué hace el archivo?
+                            Rta: Este archivo contiene funciones middleware para validar tokens JWT y controlar el acceso según el rol del usuario.
+                        ¿Qué función cumple el archivo en el proyecto?.
+                        Rta: Protege rutas privadas del sistema, verificando si el usuario está autenticado y si tiene permisos para ingresar.
 
                 |---------------------------------------------------------------------------------------------------------------------------------------- |
                 
-                    A.   [Explicar qué hace cada línea de código, por ejemplo: Desde la línea 1 hasta la 5 'export const MyColors = {}', hace que 
-                          'MyColors' sea accesible desde otros archivos del proyecto (importable)].
-                    B.   [Explicar qué hace cada línea de código, por ejemplo: En la línea 2 'background: '#EEEEEE',', se está colocando un color 
-                          de fondo gris claro, al elemento reutilizable en el proyecto].
+                    A.   Líneas 1 a 2: Importan librería JWT y archivo de claves.
+                    B.   Líneas 4 a 32: Función verifyToken, valida si el token existe y es correcto.
+                    C.   Líneas 34 a 44: Función authorizeRoles, permite acceso según roles autorizados.
+                    D.   Líneas 46 a 49: Exportan las funciones middleware.
                 |                                                                                                                                         |
                 └ --------------------------------------------------------------------------------------------------------------------------------------- ┘
 
@@ -1006,21 +1054,24 @@
                      13     router.put('/:id', verifyToken, authorizeRoles(['admin', 'seller']), userController.getUserUpdate);
                      14     router.delete('/delete/:id', verifyToken, authorizeRoles(['admin']), userController.getUserDelete);
                      15
-                     16     module.exports = router;
+                     16     module.exports = router;y
 
                 ┌ --------------------------------------------------------------------------------------------------------------------------------------- ┐
                 |                                                                                                                                         |
                   EXPLICACIÓN:
                     
-                    ⦿   [nombre_archivo]: [En este espacio, se deben responder 2 preguntas: ¿Qué hace el archivo? y ¿Qué función cumple el archivo 
-                                            en el proyecto?].
+                    ⦿   userRoutes.js
+                        ¿Qué hace el archivo?
+                            Rta: Este archivo define las rutas relacionadas con usuarios, conectando cada URL con su controlador correspondiente.
+                        ¿Qué función cumple el archivo en el proyecto?.
+                            Rta: Organiza los endpoints de usuarios y aplica seguridad mediante autenticación JWT y validación de roles.
 
                 |---------------------------------------------------------------------------------------------------------------------------------------- |
                 
-                    A.   [Explicar qué hace cada línea de código, por ejemplo: Desde la línea 1 hasta la 5 'export const MyColors = {}', hace que 
-                          'MyColors' sea accesible desde otros archivos del proyecto (importable)].
-                    B.   [Explicar qué hace cada línea de código, por ejemplo: En la línea 2 'background: '#EEEEEE',', se está colocando un color 
-                          de fondo gris claro, al elemento reutilizable en el proyecto].
+                    A.   Líneas 1 a 4: Importan express, router, controlador de usuarios y middlewares de seguridad.
+                    B.   Líneas 6 a 8: Definen rutas públicas para registro e inicio de sesión.
+                    C.   Líneas 10 a 14: Definen rutas protegidas con token y roles permitidos.
+                    D.   Línea 16: Exporta el router para usarlo en el servidor principal.
                 |                                                                                                                                         |
                 └ --------------------------------------------------------------------------------------------------------------------------------------- ┘
 
@@ -1067,15 +1118,23 @@
                 |                                                                                                                                         |
                   EXPLICACIÓN:
                     
-                    ⦿   [nombre_archivo]: [En este espacio, se deben responder 2 preguntas: ¿Qué hace el archivo? y ¿Qué función cumple el archivo 
-                                            en el proyecto?].
+                    ⦿   server.js
+                        ¿Qué hace el archivo?
+                            Rta: Este archivo configura el servidor backend con Express.js, agrega middlewares globales, define rutas principales 
+                            y manejo de errores.
+                        ¿Qué función cumple el archivo en el proyecto?.
+                            Rta:Es la base principal de la aplicación, donde se prepara el servidor para recibir solicitudes HTTP y conectar 
+                            las rutas del sistema.
 
                 |---------------------------------------------------------------------------------------------------------------------------------------- |
                 
-                    A.   [Explicar qué hace cada línea de código, por ejemplo: Desde la línea 1 hasta la 5 'export const MyColors = {}', hace que 
-                          'MyColors' sea accesible desde otros archivos del proyecto (importable)].
-                    B.   [Explicar qué hace cada línea de código, por ejemplo: En la línea 2 'background: '#EEEEEE',', se está colocando un color 
-                          de fondo gris claro, al elemento reutilizable en el proyecto].
+                    A.   Líneas 2 a 5: Importan librerías y rutas necesarias del proyecto.
+                    B.   Línea 7: Crea la aplicación con Express.js.
+                    C.   Líneas 9 a 13: Configuran middlewares globales.
+                    D.   Líneas 15 a 16: Registran rutas de usuarios.
+                    E.   Líneas 18 a 25: Definen rutas de prueba.
+                    F.   Líneas 27 a 31: Configuran manejo de errores.
+                    G.   Línea 34: Exporta la aplicación.
                 |                                                                                                                                         |
                 └ --------------------------------------------------------------------------------------------------------------------------------------- ┘
 
@@ -1115,33 +1174,29 @@
                 |                                                                                                                                         |
                   EXPLICACIÓN:   
                     
-                    ⦿  XXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
+                    ⦿  index.js
+                        ¿Qué hace el archivo?
+                            Rta: Este archivo inicia el servidor HTTP, configura CORS y pone en funcionamiento la aplicación backend.
+                        ¿Qué función cumple en el proyecto?
+                             RTA: Es el punto de arranque del sistema, encargado de levantar el servidor y dejar disponible la API para recibir 
+                             conexiones.
 
                 |---------------------------------------------------------------------------------------------------------------------------------------- |
                 
-                    A.   [Explicar qué hace cada línea de código, por ejemplo: Desde la línea 1 hasta la 5 'export const MyColors = {}', hace que 
-                          'MyColors' sea accesible desde otros archivos del proyecto (importable)].
-                    B.   [Explicar qué hace cada línea de código, por ejemplo: En la línea 2 'background: '#EEEEEE',', se está colocando un color 
-                          de fondo gris claro, al elemento reutilizable en el proyecto].
-                    X.   En la línea 5 se coloca la 'Dirección IPv4' del computador, para saberla, se debe escribir lo siguiente:
-                            
-                          ⦿   PS C:\..\backend> ipconfig
-
-                                    Configuración IP de Windows
-
-                                    Adaptador de Ethernet Ethernet:
-
-                                      Sufijo DNS específico para la conexión. . : 
-                                      Vínculo: dirección IPv6 local. . . : fe80::dd0d:b7b6:203:30a5%6
-                                      Dirección IPv4. . . . . . . . . . . . . . : 192.168.1.77               <------ Seleccionar y copiar la IPv4
-                                      Máscara de subred . . . . . . . . . . . . : 255.255.255.0      
-                                      Puerta de enlace predeterminada . . . . . : fe80::1%6
-                                                                          192.168.1.1
-
-                                    Adaptador de Ethernet Bluetooth Network Connection:
-
-                                      Estado de los medios. . . . . . . . . . . : medios desconectados
-                                      Sufijo DNS específico para la conexión. . :
+                    A.   Línea 1 const http = require('http'); : Importa módulo HTTP de Node.js.
+                    B.   Línea 2 const app = require('./server'); : Importa la aplicación principal.
+                    C.   Línea 3 const cors = require('cors'); : Importa middleware CORS.
+                    D.   Línea 4 const port = process.env.PORT || 3000; : Define puerto del servidor o usa 3000.
+                    E.   Línea 5 const host = process.env.HOST || '192.168.1.77'; : Define dirección IP del servidor.
+                    F.   Líneas 8 a 17 app.use(cors({...})) : Permite acceso desde direcciones autorizadas.
+                    G.   Línea 14 credentials: true : Permite uso de credenciales.
+                    H.   Línea 15 methods[...] : Autoriza métodos HTTP permitidos.
+                    I.   Línea 16 allowedHeaders[...] : Autoriza encabezados permitidos.
+                    J.   Línea 20 app.options('*', cors()); : Responde solicitudes preflight.
+                    K.   Línea 21 app.set('port', port); : Guarda el puerto en la aplicación.
+                    L.   Línea 23 const server = http.createServer(app); : Crea servidor HTTP.
+                    M.   Línea 25 server.listen(port, host...) : Inicia servidor en IP y puerto indicados.
+                    N.   Línea 26 console.log(...) : Muestra mensaje de servidor activo.
                 |                                                                                                                                         |
                 └ --------------------------------------------------------------------------------------------------------------------------------------- ┘
 
